@@ -1,0 +1,114 @@
+/* Modern CSS Reset and Variables */
+:root {
+  --wafd-green: #009639;
+  --wafd-blue: #186CE2;
+  --wafd-dark: #1F2937;
+  --wafd-gray: #F3F4F6;
+  --wafd-text: #374151;
+  --wafd-border: #E5E7EB;
+  font-family: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: var(--wafd-text);
+  background-color: #ffffff;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #fafaec; /* Subtle background to give mobile app feel */
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%; /* Changed from 480px to be responsive */
+  background: white;
+  min-height: 100vh;
+  box-shadow: 0 0 20px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive constraints */
+@media (min-width: 768px) {
+  #root {
+    max-width: 900px;
+    margin: 40px auto;
+    min-height: calc(100vh - 80px);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+}
+
+.content-container {
+  padding: 24px 20px;
+}
+
+.banner-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+
+@media (min-width: 768px) {
+  .content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+    padding: 32px 40px;
+  }
+  .banner-img {
+    height: 240px;
+  }
+  
+  /* Utilities for Download page on desktop */
+  .download-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 48px;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Typography styles */
+h1, h2, h3, h4 {
+  color: var(--wafd-dark);
+  font-weight: 600;
+}
+
+/* Formatted Links */
+.link-copy {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--wafd-text);
+  font-weight: 500;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--wafd-border);
+  cursor: pointer;
+  justify-content: space-between;
+}
+
+.link-copy:hover {
+  background-color: var(--wafd-gray);
+}
