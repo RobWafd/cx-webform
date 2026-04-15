@@ -33,11 +33,6 @@ export default function Footer() {
         </p>
         <p>Member FDIC</p>
       </div>
-      
-      <div style={{ color: '#9ca3af', fontSize: '11px' }}>
-        {/* We can use the current dynamic date or a static one from the source: 03/31/2025 01:15 PM */}
-        03/31/2025 01:15 PM
-      </div>
     </footer>
   );
 }
