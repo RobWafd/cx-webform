@@ -50,9 +50,6 @@ export default function LoginInstructions() {
               </a>
             </div>
 
-            <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '32px' }}>
-              03/31/2025 01:15 PM
-            </div>
           </div>
         </div>
       </main>
