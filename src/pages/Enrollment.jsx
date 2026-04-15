@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import AppDownloads from '../components/AppDownloads';
 import bannerImg from '../assets/banner.png';
 import heroImg from '../assets/hero.png';
 import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
@@ -67,16 +68,7 @@ export default function Enrollment() {
               ENROLL NOW
             </a>
 
-            <div style={{ marginBottom: '32px' }}>
-              <a href="https://apps.apple.com/us/app/wafd-bank/id1054549841?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding" className="link-copy">
-                <span>Download for Apple</span>
-                <LinkIcon size={18} />
-              </a>
-              <a href="https://play.google.com/store/apps/details?id=com.washingtonfederal.mobilebanking&hl=en_US" className="link-copy">
-                <span>Download for Android</span>
-                <LinkIcon size={18} />
-              </a>
-            </div>
+            <AppDownloads campaign="checking_onboarding" appleText="Download for Apple" androidText="Download for Android" />
 
             {/* Accordion */}
             <div style={{ borderTop: '1px solid var(--wafd-border)', paddingTop: '16px', marginBottom: '16px' }}>
