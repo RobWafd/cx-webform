@@ -1,0 +1,63 @@
+import React from 'react';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import bannerImg from '../assets/banner.png';
+import { Link as LinkIcon } from 'lucide-react';
+
+export default function LoginInstructions() {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
+      <Header />
+      
+      <main style={{ flex: 1, paddingBottom: '32px' }}>
+        <img src={bannerImg} alt="Banner" className="banner-img" />
+
+        <div className="content-container">
+          <div className="form-column" style={{ paddingTop: '16px' }}>
+            <p style={{ color: 'var(--wafd-dark)', marginBottom: '16px', lineHeight: '1.6', fontWeight: '600' }}>
+              Once you Login:
+            </p>
+            
+            <ul style={{ paddingLeft: '20px', color: 'var(--wafd-text)', marginBottom: '32px', lineHeight: '1.6', fontSize: '15px', listStyleType: 'circle' }}>
+              <li style={{ marginBottom: '12px' }}>
+                Set up alerts
+                <ul style={{ paddingLeft: '24px', marginTop: '4px', listStyleType: 'square', color: 'var(--wafd-text)' }}>
+                  <li>Navigate to the bell icon to setup notifications</li>
+                </ul>
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                Link your accounts
+                <ul style={{ paddingLeft: '24px', marginTop: '4px', listStyleType: 'square', color: 'var(--wafd-text)' }}>
+                  <li>Select <span style={{ fontStyle: 'italic', fontWeight: '600' }}>Link Account</span> to set up your accounts</li>
+                </ul>
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                Manage cards
+                <ul style={{ paddingLeft: '24px', marginTop: '4px', listStyleType: 'square', color: 'var(--wafd-text)' }}>
+                  <li>Click on <span style={{ fontStyle: 'italic', fontWeight: '600' }}>Manage Cards</span> to lock/unlock your debit card and update your PIN</li>
+                </ul>
+              </li>
+            </ul>
+
+            <div style={{ marginBottom: '32px' }}>
+              <a href="https://apps.apple.com/us/app/wafd-bank/id1054549841?utm_source=relay&utm_medium=sms&utm_campaign=onboarding" className="link-copy" style={{ textDecoration: 'none' }}>
+                <span>Mobile App for Apple</span>
+                <LinkIcon size={18} />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.washingtonfederal.mobilebanking&hl=en_US&utm_source=relay&utm_medium=sms&utm_campaign=onboarding" className="link-copy" style={{ textDecoration: 'none' }}>
+                <span>Mobile App for Android</span>
+                <LinkIcon size={18} />
+              </a>
+            </div>
+
+            <div style={{ fontSize: '12px', color: '#6B7280', marginTop: '32px' }}>
+              03/31/2025 01:15 PM
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
