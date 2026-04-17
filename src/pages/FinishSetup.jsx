@@ -1,96 +1,55 @@
 import React from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import bannerImg from '../assets/banner.png';
-import feedLifestyleImg from '../assets/feed_lifestyle.png';
+import { Link } from 'react-router-dom';
+import PageLayout from '../components/PageLayout';
+import PrimaryButton from '../components/PrimaryButton';
+import feedLifestyleImg from '../assets/feed_lifestyle.png'; 
 import { Link as LinkIcon, ChevronRight } from 'lucide-react';
 
 export default function FinishSetup() {
-  const [searchParams] = useSearchParams();
-
-  // Retrieve dynamic fields or default to placeholders if not provided
-  const firstName = searchParams.get('first_name') || 'Customer';
-
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
-      <Header />
-      
-      <main style={{ flex: 1, paddingBottom: '32px' }}>
-        {/* Banner */}
-        <img 
-          src={bannerImg} 
-          alt="People with arms raised outdoors" 
-          className="banner-img"
-        />
-
-        <div className="content-container">
-          <div className="image-column">
-            <img 
-              src={feedLifestyleImg} 
-              alt="People making mobile payment" 
-              style={{ width: '100%', borderRadius: '8px', marginBottom: '24px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
-            />
-          </div>
-
-          <div className="form-column">
-            <h2 style={{ fontSize: '18px', marginBottom: '12px' }}>Finish Setting up Your New Account!</h2>
-            <p style={{ color: 'var(--wafd-text)', marginBottom: '16px', lineHeight: '1.5' }}>
-              Nice start, {firstName}! Take a minute to prepare your new account. Here's a short checklist to get you started:
-            </p>
-            <ul style={{ paddingLeft: '20px', color: 'var(--wafd-text)', marginBottom: '24px', lineHeight: '1.6' }}>
-              <li style={{ marginBottom: '8px' }}>
-                <span style={{ fontWeight: '600' }}>Set up Direct Deposit</span> - Automatically deposit your paycheck to your account for easy access to your funds.
-              </li>
-              <li style={{ marginBottom: '8px' }}>
-                <span style={{ fontWeight: '600' }}>Add WaFd to Your Digital Wallet</span> - Make fast and easy contactless payments with your mobile device.
-              </li>
-              <li>
-                <span style={{ fontWeight: '600' }}>Connect Your Accounts</span> - Connect your accounts from any bank to see everything in one place.
-              </li>
-            </ul>
-
-            <a 
-              href="https://www.wafdbank.com/blog/banking-101/how-to-set-up-direct-deposit?utm_source=relay&utm_medium=sms&utm_campaign=onboarding"
-              style={{
-                width: '100%',
-                backgroundColor: 'var(--wafd-dark)',
-                color: 'white',
-                border: 'none',
-                padding: '16px',
-                borderRadius: '4px',
-                fontWeight: '700',
-                fontSize: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                cursor: 'pointer',
-                marginBottom: '24px',
-                textTransform: 'uppercase',
-                textDecoration: 'none'
-              }}
-            >
-              <LinkIcon size={20} />
-              SET UP DIRECT DEPOSIT
-            </a>
-
-            <div style={{ marginBottom: '32px' }}>
-              <a href="https://www.wafdbank.com/personal-banking/debit-cards/digital-debit-card?utm_source=relay&utm_medium=sms&utm_campaign=onboarding" className="link-copy">
-                <span>Add WaFd to Your Digital Wallet</span>
-                <LinkIcon size={18} />
-              </a>
-              <Link to="/connect-accounts" className="link-copy">
-                <span>How to Connect Your Accounts</span>
-                <ChevronRight size={18} />
-              </Link>
-            </div>
-
-          </div>
+    <PageLayout>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+        <div className="flex flex-col order-1 md:order-2 w-full">
+          <img 
+            src={feedLifestyleImg} 
+            alt="Person using a digital wallet on a payment terminal" 
+            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+          />
         </div>
-      </main>
 
-      <Footer />
-    </div>
+        <div className="flex flex-col order-2 md:order-1">
+          <h2 className="text-2xl md:text-3xl font-bold text-wafd-dark mb-4">Finish Setting up Your New Account!</h2>
+          <p className="text-wafd-text mb-6 leading-relaxed text-lg">
+            We're pleased to welcome you as a new client! Setting up your new account is quick and easy. Take a few minutes to:
+          </p>
+          <ul className="list-disc pl-5 text-wafd-text mb-8 leading-relaxed text-lg space-y-4">
+            <li>
+              <span className="font-semibold text-wafd-dark block mb-1">Set Up Direct Deposit</span> Having a direct deposit can unlock perks like WaFd's Early Pay Date - getting paid up to two days early.
+            </li>
+            <li>
+              <span className="font-semibold text-wafd-dark block mb-1">Add WaFd to Your Digital Wallet</span> Connect your new debit card to Apple Pay or Google Pay to tap and pay.
+            </li>
+          </ul>
+
+          <PrimaryButton 
+            href="https://www.wafdbank.com/how-to/switch-to-washington-federal#direct-deposit?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding"
+            icon={ChevronRight}
+          >
+            SET UP DIRECT DEPOSIT
+          </PrimaryButton>
+
+          <div className="mb-8 mt-2">
+            <a href="https://www.wafdbank.com/personal-banking/checking-accounts/debit-cards?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding" className="flex justify-between items-center py-5 border-b border-t border-wafd-border text-wafd-dark font-medium no-underline hover:bg-gray-50 transition-colors px-2">
+              <span className="text-lg">Add WaFd to Your Digital Wallet</span>
+              <LinkIcon size={20} />
+            </a>
+          </div>
+
+          <Link to="/connect-accounts" className="text-wafd-blue underline block font-medium text-lg mt-auto hover:text-blue-800 transition-colors">
+            How to Connect Your Accounts
+          </Link>
+        </div>
+      </div>
+    </PageLayout>
   );
 }

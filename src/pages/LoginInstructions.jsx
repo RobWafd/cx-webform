@@ -1,52 +1,41 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import PageLayout from '../components/PageLayout';
 import AppDownloads from '../components/AppDownloads';
-import bannerImg from '../assets/banner.png';
-import { Link as LinkIcon } from 'lucide-react';
 
 export default function LoginInstructions() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
-      <Header />
-      
-      <main style={{ flex: 1, paddingBottom: '32px' }}>
-        <img src={bannerImg} alt="Banner" className="banner-img" />
-
-        <div className="content-container">
-          <div className="form-column" style={{ paddingTop: '16px' }}>
-            <p style={{ color: 'var(--wafd-dark)', marginBottom: '16px', lineHeight: '1.6', fontWeight: '600' }}>
-              Once you Login:
-            </p>
-            
-            <ul style={{ paddingLeft: '20px', color: 'var(--wafd-text)', marginBottom: '32px', lineHeight: '1.6', fontSize: '15px', listStyleType: 'circle' }}>
-              <li style={{ marginBottom: '12px' }}>
-                Set up alerts
-                <ul style={{ paddingLeft: '24px', marginTop: '4px', listStyleType: 'square', color: 'var(--wafd-text)' }}>
-                  <li>Navigate to the bell icon to setup notifications</li>
-                </ul>
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                Link your accounts
-                <ul style={{ paddingLeft: '24px', marginTop: '4px', listStyleType: 'square', color: 'var(--wafd-text)' }}>
-                  <li>Select <span style={{ fontStyle: 'italic', fontWeight: '600' }}>Link Account</span> to set up your accounts</li>
-                </ul>
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                Manage cards
-                <ul style={{ paddingLeft: '24px', marginTop: '4px', listStyleType: 'square', color: 'var(--wafd-text)' }}>
-                  <li>Click on <span style={{ fontStyle: 'italic', fontWeight: '600' }}>Manage Cards</span> to lock/unlock your debit card and update your PIN</li>
-                </ul>
-              </li>
+    <PageLayout>
+      <div className="flex flex-col max-w-3xl mx-auto w-full pt-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-wafd-dark mb-6 text-center md:text-left">Login Instructions</h2>
+        <p className="text-wafd-dark mb-6 leading-relaxed font-semibold text-lg">
+          Once you Login:
+        </p>
+        
+        <ul className="list-[circle] pl-6 text-lg text-wafd-text mb-10 leading-relaxed space-y-6">
+          <li className="mb-3">
+            <span className="font-bold text-wafd-dark block mb-2">Set up alerts</span>
+            <ul className="list-[square] pl-6 mt-1 text-gray-600 space-y-2">
+              <li>Navigate to the bell icon to setup notifications</li>
             </ul>
+          </li>
+          <li className="mb-3">
+            <span className="font-bold text-wafd-dark block mb-2">Link your accounts</span>
+            <ul className="list-[square] pl-6 mt-1 text-gray-600 space-y-2">
+              <li>Select <span className="font-semibold italic">Link Account</span> to set up your accounts</li>
+            </ul>
+          </li>
+          <li className="mb-3">
+            <span className="font-bold text-wafd-dark block mb-2">Manage cards</span>
+            <ul className="list-[square] pl-6 mt-1 text-gray-600 space-y-2">
+              <li>Click on <span className="font-semibold italic">Manage Cards</span> to lock/unlock your debit card and update your PIN</li>
+            </ul>
+          </li>
+        </ul>
 
-            <AppDownloads campaign="onboarding" />
-
-          </div>
+        <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm">
+          <AppDownloads campaign="onboarding" />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </PageLayout>
   );
 }

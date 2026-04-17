@@ -1,49 +1,38 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import PageLayout from '../components/PageLayout';
 import AppDownloads from '../components/AppDownloads';
-import bannerImg from '../assets/banner.png';
-import { Link as LinkIcon } from 'lucide-react';
 
 export default function AccessRewards() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
-      <Header />
-      
-      <main style={{ flex: 1, paddingBottom: '32px' }}>
-        <img src={bannerImg} alt="Banner" className="banner-img" />
+    <PageLayout>
+      <div className="flex flex-col max-w-3xl mx-auto w-full pt-8">
+        <h2 className="text-2xl md:text-3xl font-bold text-wafd-dark mb-6 text-center md:text-left">Access your Rewards</h2>
+        <p className="text-wafd-dark mb-6 leading-relaxed font-semibold text-lg">
+          Access your Rewards Using:
+        </p>
+        
+        <ul className="list-[circle] pl-6 text-lg text-wafd-text mb-10 leading-relaxed space-y-6">
+          <li className="mb-3">
+            <span className="font-bold text-wafd-dark block mb-2">Mobile Banking:</span>
+            <ol className="list-decimal pl-6 mt-1 text-gray-600 space-y-2">
+              <li>Login</li>
+              <li>In your top navigation, swipe left and click on the Rewards tile</li>
+            </ol>
+          </li>
+          <li className="mb-3">
+            <span className="font-bold text-wafd-dark block mb-2">Online Banking:</span>
+            <ol className="list-decimal pl-6 mt-1 text-gray-600 space-y-2">
+              <li>Login</li>
+              <li>Click on an eligible account</li>
+              <li>Select Rewards on the Actions menu</li>
+            </ol>
+          </li>
+        </ul>
 
-        <div className="content-container">
-          <div className="form-column" style={{ paddingTop: '16px' }}>
-            <p style={{ color: 'var(--wafd-dark)', marginBottom: '16px', lineHeight: '1.6', fontWeight: '600' }}>
-              Access your Rewards Using:
-            </p>
-            
-            <ul style={{ paddingLeft: '20px', color: 'var(--wafd-text)', marginBottom: '32px', lineHeight: '1.6', fontSize: '15px', listStyleType: 'circle' }}>
-              <li style={{ marginBottom: '12px' }}>
-                <span style={{ fontWeight: '500' }}>Mobile Banking:</span>
-                <ol style={{ paddingLeft: '24px', marginTop: '4px', color: 'var(--wafd-text)' }}>
-                  <li>Login</li>
-                  <li>In your top navigation, swipe left and click on the Rewards tile</li>
-                </ol>
-              </li>
-              <li style={{ marginBottom: '12px' }}>
-                <span style={{ fontWeight: '500' }}>Online Banking:</span>
-                <ol style={{ paddingLeft: '24px', marginTop: '4px', color: 'var(--wafd-text)' }}>
-                  <li>Login</li>
-                  <li>Click on an eligible account</li>
-                  <li>Select Rewards on the Actions menu</li>
-                </ol>
-              </li>
-            </ul>
-
-            <AppDownloads campaign="ck_onboarding" />
-
-          </div>
+        <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm mt-4 w-full">
+          <AppDownloads campaign="ck_onboarding" />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </PageLayout>
   );
 }

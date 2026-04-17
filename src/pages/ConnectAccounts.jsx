@@ -1,39 +1,23 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import PageLayout from '../components/PageLayout';
 import AppDownloads from '../components/AppDownloads';
-import bannerImg from '../assets/banner.png';
-import { Link as LinkIcon } from 'lucide-react';
 
 export default function ConnectAccounts() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
-      <Header />
-      
-      <main style={{ flex: 1, paddingBottom: '32px' }}>
-        {/* Banner */}
-        <img 
-          src={bannerImg} 
-          alt="People with arms raised outdoors" 
-          className="banner-img"
-        />
+    <PageLayout>
+      <div className="flex flex-col max-w-2xl mx-auto w-full pt-8 text-center md:text-left">
+        <h2 className="text-2xl md:text-4xl font-bold text-wafd-dark mb-6">Connect Your Accounts</h2>
+        <p className="text-wafd-text mb-4 leading-relaxed text-lg font-medium">
+          Connect your accounts from any bank to see everything in one place.
+        </p>
+        <p className="text-wafd-text mb-12 leading-relaxed text-lg italic">
+          From your mobile app, click <span className="font-semibold not-italic text-wafd-dark">Link Account</span>.
+        </p>
 
-        <div className="content-container">
-          <div className="form-column" style={{ paddingTop: '16px' }}>
-            <p style={{ color: 'var(--wafd-dark)', marginBottom: '24px', lineHeight: '1.6', fontWeight: '500' }}>
-              Connect your accounts from any bank to see everything in one place.
-            </p>
-            <p style={{ color: 'var(--wafd-text)', marginBottom: '32px', lineHeight: '1.6', fontStyle: 'italic' }}>
-              From your mobile app, click <span style={{ fontWeight: '600' }}>Link Account</span>.
-            </p>
-
-            <AppDownloads campaign="onboarding" />
-
-          </div>
+        <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm w-full">
+          <AppDownloads campaign="onboarding" />
         </div>
-      </main>
-
-      <Footer />
-    </div>
+      </div>
+    </PageLayout>
   );
 }

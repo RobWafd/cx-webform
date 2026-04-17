@@ -1,78 +1,50 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import bannerImg from '../assets/banner.png';
+import PageLayout from '../components/PageLayout';
+import PrimaryButton from '../components/PrimaryButton';
 import feedLifestyleImg from '../assets/feed_lifestyle.png'; 
 import { ChevronRight, Link as LinkIcon } from 'lucide-react';
 
 export default function RewardsBenefits() {
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh', width: '100%' }}>
-      <Header />
-      
-      <main style={{ flex: 1, paddingBottom: '32px' }}>
-        <img src={bannerImg} alt="Banner" className="banner-img" />
-
-        <div className="content-container">
-          <div className="image-column">
-            <img 
-              src={feedLifestyleImg} 
-              alt="Person pumping gas" 
-              style={{ width: '100%', borderRadius: '8px', marginBottom: '24px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}
-            />
-          </div>
-
-          <div className="form-column">
-            <h2 style={{ fontSize: '18px', marginBottom: '16px', fontWeight: '700', color: 'var(--wafd-dark)' }}>
-              Don't Miss Out on Your Benefits!
-            </h2>
-            <p style={{ color: 'var(--wafd-text)', marginBottom: '16px', lineHeight: '1.6' }}>
-              Have you tapped into the money saving perks that come with your checking account? Your benefits include:
-            </p>
-            <ul style={{ paddingLeft: '20px', color: 'var(--wafd-text)', marginBottom: '32px', lineHeight: '1.6' }}>
-              <li>Fuel Savings</li>
-              <li>Mobile Phone Protection</li>
-              <li>Shopping Discounts</li>
-              <li>Travel and Leisure Discounts</li>
-              <li>Identity Theft Monitoring and more</li>
-            </ul>
-
-            <Link 
-              to="/access-rewards"
-              style={{
-                width: '100%',
-                backgroundColor: 'var(--wafd-dark)',
-                color: 'white',
-                border: 'none',
-                padding: '16px',
-                borderRadius: '4px',
-                fontWeight: '700',
-                fontSize: '16px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px',
-                cursor: 'pointer',
-                marginBottom: '24px',
-                textTransform: 'uppercase',
-                textDecoration: 'none'
-              }}
-            >
-              <ChevronRight size={20} />
-              VIEW REWARDS
-            </Link>
-
-            <a href="https://www.wafdbank.com/personal-banking/rewards-checking-faq?utm_source=relay&utm_medium=sms&utm_campaign=ck_onboarding" className="link-copy" style={{ textDecoration: 'none', paddingLeft: '4px', paddingRight: '4px', borderTop: '1px solid var(--wafd-border)' }}>
-              <span>Frequently Asked Question</span>
-              <LinkIcon size={18} />
-            </a>
-
-          </div>
+    <PageLayout>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
+        <div className="flex flex-col order-1 md:order-2 w-full">
+          <img 
+            src={feedLifestyleImg} 
+            alt="Person pumping gas" 
+            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+          />
         </div>
-      </main>
 
-      <Footer />
-    </div>
+        <div className="flex flex-col order-2 md:order-1">
+          <h2 className="text-2xl md:text-4xl font-bold text-wafd-dark mb-4">
+            Don't Miss Out on Your Benefits!
+          </h2>
+          <p className="text-wafd-text mb-6 leading-relaxed text-lg">
+            Have you tapped into the money saving perks that come with your checking account? Your benefits include:
+          </p>
+          <ul className="list-disc pl-5 text-wafd-text mb-10 leading-relaxed text-lg space-y-3">
+            <li>Fuel Savings</li>
+            <li>Mobile Phone Protection</li>
+            <li>Shopping Discounts</li>
+            <li>Travel and Leisure Discounts</li>
+            <li>Identity Theft Monitoring and more</li>
+          </ul>
+
+          <PrimaryButton 
+            to="/access-rewards"
+            icon={ChevronRight}
+          >
+            VIEW REWARDS
+          </PrimaryButton>
+
+          <a href="https://www.wafdbank.com/personal-banking/rewards-checking-faq?utm_source=relay&utm_medium=sms&utm_campaign=ck_onboarding" className="flex justify-between items-center px-4 py-5 border-t border-b border-gray-200 text-wafd-dark font-medium no-underline hover:bg-gray-50 transition-colors mt-6 rounded">
+            <span className="text-lg">Frequently Asked Question</span>
+            <LinkIcon size={20} />
+          </a>
+        </div>
+      </div>
+    </PageLayout>
   );
 }
