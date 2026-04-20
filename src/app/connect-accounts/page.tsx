@@ -1,6 +1,6 @@
 import React from 'react';
-import PageLayout from '../components/PageLayout';
-import AppDownloads from '../components/AppDownloads';
+import PageLayout from '../../components/PageLayout';
+import AppDownloads from '../../components/AppDownloads';
 
 export default function ConnectAccounts() {
   return (
@@ -21,3 +21,6 @@ export default function ConnectAccounts() {
     </PageLayout>
   );
 }
+
+
+

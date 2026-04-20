@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PageLayout from '../components/PageLayout';
-import PrimaryButton from '../components/PrimaryButton';
-import feedLifestyleImg from '../assets/feed_lifestyle.png'; 
+import Link from 'next/link';
+import PageLayout from '../../components/PageLayout';
+import PrimaryButton from '../../components/PrimaryButton';
+import feedLifestyleImg from '../../assets/feed_lifestyle.png'; 
 import { ChevronRight, Link as LinkIcon } from 'lucide-react';
 
 export default function RewardsBenefits() {
@@ -11,9 +11,9 @@ export default function RewardsBenefits() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <div className="flex flex-col order-1 md:order-2 w-full">
           <img 
-            src={feedLifestyleImg} 
+            src={feedLifestyleImg.src} 
             alt="Person pumping gas" 
-            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
           />
         </div>
 
@@ -34,7 +34,6 @@ export default function RewardsBenefits() {
 
           <PrimaryButton 
             to="/access-rewards"
-            icon={ChevronRight}
           >
             VIEW REWARDS
           </PrimaryButton>
@@ -48,3 +47,6 @@ export default function RewardsBenefits() {
     </PageLayout>
   );
 }
+
+
+

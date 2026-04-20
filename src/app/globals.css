@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-wafd-green: #009639;
+  --color-wafd-dark: #202324;
+  --color-wafd-text: #202324;
+  --color-wafd-gray: #505759;
+  --color-wafd-blue: #2563EB;
+  --color-wafd-blue-dark: #1D4ED8;
+  --color-wafd-header: #004945;
+  --color-wafd-border: #E5E7EB;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  background-color: #f9fafb;
+}

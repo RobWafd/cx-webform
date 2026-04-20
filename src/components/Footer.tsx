@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Footer() {
   return (
-    <footer className="mt-auto px-5 py-6 text-[11px] text-gray-500 leading-relaxed">
+    <footer className="mt-auto px-5 py-6 text-[11px] text-wafd-text text-[16px] leading-[24px] leading-relaxed">
       <div className="bg-gray-100 p-4 mb-4 rounded">
         <p>This is a service message from WaFd Bank.</p>
         <p>WaFd Bank | 428 Pike Street Seattle, WA 98101</p>
@@ -16,3 +16,6 @@ export default function Footer() {
     </footer>
   );
 }
+
+
+

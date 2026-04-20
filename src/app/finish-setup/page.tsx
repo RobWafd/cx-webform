@@ -1,8 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import PageLayout from '../components/PageLayout';
-import PrimaryButton from '../components/PrimaryButton';
-import feedLifestyleImg from '../assets/feed_lifestyle.png'; 
+import Link from 'next/link';
+import PageLayout from '../../components/PageLayout';
+import PrimaryButton from '../../components/PrimaryButton';
+import feedLifestyleImg from '../../assets/feed_lifestyle.png'; 
 import { Link as LinkIcon, ChevronRight } from 'lucide-react';
 
 export default function FinishSetup() {
@@ -11,14 +11,14 @@ export default function FinishSetup() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <div className="flex flex-col order-1 md:order-2 w-full">
           <img 
-            src={feedLifestyleImg} 
+            src={feedLifestyleImg.src} 
             alt="Person using a digital wallet on a payment terminal" 
-            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
           />
         </div>
 
         <div className="flex flex-col order-2 md:order-1">
-          <h2 className="text-2xl md:text-3xl font-bold text-wafd-dark mb-4">Finish Setting up Your New Account!</h2>
+          <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">Finish Setting up Your New Account!</h2>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
             We're pleased to welcome you as a new client! Setting up your new account is quick and easy. Take a few minutes to:
           </p>
@@ -33,7 +33,6 @@ export default function FinishSetup() {
 
           <PrimaryButton 
             href="https://www.wafdbank.com/how-to/switch-to-washington-federal#direct-deposit?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding"
-            icon={ChevronRight}
           >
             SET UP DIRECT DEPOSIT
           </PrimaryButton>
@@ -45,7 +44,7 @@ export default function FinishSetup() {
             </a>
           </div>
 
-          <Link to="/connect-accounts" className="text-wafd-blue underline block font-medium text-lg mt-auto hover:text-blue-800 transition-colors">
+          <Link href="/connect-accounts" className="text-wafd-blue underline block font-medium text-lg mt-auto hover:text-blue-800 transition-colors">
             How to Connect Your Accounts
           </Link>
         </div>
@@ -53,3 +52,6 @@ export default function FinishSetup() {
     </PageLayout>
   );
 }
+
+
+

@@ -1,6 +1,6 @@
 import React from 'react';
-import PageLayout from '../components/PageLayout';
-import AppDownloads from '../components/AppDownloads';
+import PageLayout from '../../components/PageLayout';
+import AppDownloads from '../../components/AppDownloads';
 
 export default function Download() {
   return (
@@ -12,9 +12,12 @@ export default function Download() {
         </p>
 
         <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm w-full">
-          <AppDownloads campaign="app_download" appleText="Download for Apple" androidText="Download for Android" />
+          <AppDownloads campaign="app_download" />
         </div>
       </div>
     </PageLayout>
   );
 }
+
+
+

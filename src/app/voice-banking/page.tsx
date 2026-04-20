@@ -1,7 +1,7 @@
 import React from 'react';
-import PageLayout from '../components/PageLayout';
-import PrimaryButton from '../components/PrimaryButton';
-import lifestyleImg from '../assets/lifestyle.png'; 
+import PageLayout from '../../components/PageLayout';
+import PrimaryButton from '../../components/PrimaryButton';
+import lifestyleImg from '../../assets/lifestyle.png'; 
 import { Phone } from 'lucide-react';
 
 export default function VoiceBanking() {
@@ -10,9 +10,9 @@ export default function VoiceBanking() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
         <div className="flex flex-col order-1 md:order-2 w-full">
           <img 
-            src={lifestyleImg} 
+            src={lifestyleImg.src} 
             alt="Person using voice banking on phone" 
-            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
           />
         </div>
 
@@ -29,7 +29,6 @@ export default function VoiceBanking() {
 
           <PrimaryButton 
             href="tel:18003249375"
-            icon={Phone}
           >
             SET UP VOICE BANKING
           </PrimaryButton>
@@ -38,3 +37,6 @@ export default function VoiceBanking() {
     </PageLayout>
   );
 }
+
+
+

@@ -1,8 +1,9 @@
+"use client";
 import React, { useState } from 'react';
-import PageLayout from '../components/PageLayout';
-import AppDownloads from '../components/AppDownloads';
-import PrimaryButton from '../components/PrimaryButton';
-import heroImg from '../assets/hero.png';
+import PageLayout from '../../components/PageLayout';
+import AppDownloads from '../../components/AppDownloads';
+import PrimaryButton from '../../components/PrimaryButton';
+import heroImg from '../../assets/hero.png';
 import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
 
 export default function Enrollment() {
@@ -15,15 +16,15 @@ export default function Enrollment() {
         {/* Mobile: Image on top. Desktop: Image on right */}
         <div className="flex flex-col order-1 md:order-2 w-full">
           <img
-            src={heroImg}
+            src={heroImg.src}
             alt="Mobile App View"
-            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
           />
         </div>
 
         {/* Form content */}
         <div className="flex flex-col order-2 md:order-1">
-          <h2 className="text-2xl md:text-3xl font-bold text-wafd-dark mb-4">Skip the Line</h2>
+          <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">Skip the Line</h2>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
             Enrollment is quick and simple! With online and mobile banking you can:
           </p>
@@ -33,16 +34,15 @@ export default function Enrollment() {
             <li>Send money through Zelle&reg;</li>
           </ul>
 
-          <h3 className="text-lg md:text-xl font-bold text-wafd-dark mb-6">Enroll to get started!</h3>
+          <h3 className="text-lg md:text-[20px] leading-[24px] font-semibold text-wafd-text mb-6">Enroll to get started!</h3>
 
           <PrimaryButton 
             href="https://online.wafdbank.com/index.html?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding"
-            icon={LinkIcon}
           >
             ENROLL NOW
           </PrimaryButton>
 
-          <AppDownloads campaign="checking_onboarding" appleText="Download for Apple" androidText="Download for Android" />
+          <AppDownloads campaign="checking_onboarding" />
 
           {/* Accordion */}
           <div className="border border-wafd-border rounded-lg mt-6 bg-gray-50 overflow-hidden">
@@ -70,3 +70,6 @@ export default function Enrollment() {
     </PageLayout>
   );
 }
+
+
+

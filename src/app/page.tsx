@@ -1,12 +1,13 @@
+"use client";
 import React, { useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'next/navigation';
 import PageLayout from '../components/PageLayout';
 import PrimaryButton from '../components/PrimaryButton';
 import feedLifestyleImg from '../assets/feed_lifestyle.png';
 import { Link2, Minus, Plus } from 'lucide-react';
 
-export default function Feed() {
-  const [searchParams] = useSearchParams();
+function FeedContent() {
+  const searchParams = useSearchParams();
   const firstname = searchParams.get('firstname') || searchParams.get('account_firstname') || searchParams.get('firstName') || 'Customer';
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
 
@@ -17,14 +18,14 @@ export default function Feed() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
         <div className="flex flex-col order-1 md:order-2 w-full">
           <img 
-            src={feedLifestyleImg} 
+            src={feedLifestyleImg.src} 
             alt="Happy couple looking at phone" 
-            className="w-full rounded-2xl mb-6 shadow-xl object-cover"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
           />
         </div>
 
         <div className="flex flex-col order-2 md:order-1">
-          <h2 className="text-2xl md:text-3xl font-bold text-wafd-dark mb-4">Welcome to Your WaFd Mobile Feed!</h2>
+          <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">Welcome to Your WaFd Mobile Feed!</h2>
             
           <p className="text-wafd-dark mb-4 leading-relaxed font-semibold text-lg">
             {firstname}, congratulations on opening your new checking account.
@@ -34,14 +35,13 @@ export default function Feed() {
             This welcome feed provides information about your account features and tips to help you get the most out of it. (Tip: Save this number in your contacts as WaFd Bank SMS.)
           </p>
 
-          <h3 className="text-xl font-bold text-wafd-dark mb-3">Jump in and manage your account online</h3>
+          <h3 className="text-[20px] leading-[24px] font-semibold text-wafd-text mb-3">Jump in and manage your account online</h3>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
             We've made it easy and secure for you to do your banking anytime, anywhere.
           </p>
 
           <PrimaryButton 
             href={enrollLink}
-            icon={Link2}
           >
             ENROLL NOW
           </PrimaryButton>
@@ -74,3 +74,14 @@ export default function Feed() {
     </PageLayout>
   );
 }
+
+export default function Feed() {
+  return (
+    <React.Suspense fallback={<div>Loading...</div>}>
+      <FeedContent />
+    </React.Suspense>
+  );
+}
+
+
+
