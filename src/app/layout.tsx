@@ -5,12 +5,19 @@ export const metadata = {
   description: 'CX Webform built with Next.js',
 };
 
+import { ClientStateProvider } from '../contexts/ClientStateContext';
+import { Suspense } from 'react';
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
         <div id="root">
-          {children}
+          <Suspense fallback={<div>Loading Experience...</div>}>
+            <ClientStateProvider>
+              {children}
+            </ClientStateProvider>
+          </Suspense>
         </div>
       </body>
     </html>
