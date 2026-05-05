@@ -23,6 +23,7 @@ export default function Header() {
       {isOpen && (
         <nav className="absolute top-[64px] left-0 w-full bg-wafd-header shadow-2xl border-t border-[#003d3a] flex flex-col py-2 z-50 transition-all duration-300">
           <Link href="/" onClick={toggleMenu} className="px-6 py-4 text-white no-underline hover:bg-[#003d3a] font-medium border-b border-[#003d3a]/50">Welcome Feed</Link>
+          <Link href="/new-account-details" onClick={toggleMenu} className="px-6 py-4 text-white no-underline hover:bg-[#003d3a] font-medium border-b border-[#003d3a]/50">New Account Details</Link>
           <Link href="/download" onClick={toggleMenu} className="px-6 py-4 text-white no-underline hover:bg-[#003d3a] font-medium border-b border-[#003d3a]/50">App Download</Link>
           <Link href="/enrollment" onClick={toggleMenu} className="px-6 py-4 text-white no-underline hover:bg-[#003d3a] font-medium border-b border-[#003d3a]/50">Enrollment</Link>
           <Link href="/finish-setup" onClick={toggleMenu} className="px-6 py-4 text-white no-underline hover:bg-[#003d3a] font-medium border-b border-[#003d3a]/50">Direct Deposit</Link>
