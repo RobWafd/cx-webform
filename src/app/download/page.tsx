@@ -11,7 +11,7 @@ export default function Download() {
           Tap below to directly download the WaFd mobile app for your device.
         </p>
 
-        <div className="bg-gray-50 p-6 md:p-8 rounded-xl border border-gray-100 shadow-sm w-full">
+        <div className="flex justify-center md:justify-start w-full mt-4">
           <AppDownloads campaign="app_download" />
         </div>
       </div>
