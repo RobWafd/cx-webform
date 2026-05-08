@@ -11,7 +11,7 @@ export default function LoginInstructions() {
           Once you Login:
         </p>
         
-        <ul className="list-[circle] pl-6 text-lg text-wafd-text mb-10 leading-relaxed space-y-6">
+        <ul className="list-[circle] pl-4 text-lg text-wafd-text mb-10 leading-relaxed space-y-6">
           <li className="mb-3">
             <span className="font-bold text-wafd-dark block mb-2">Set up alerts</span>
             <ul className="list-[square] pl-6 mt-1 text-wafd-text text-[16px] leading-[24px] space-y-2">

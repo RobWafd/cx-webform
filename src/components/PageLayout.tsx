@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import bannerImg from '../assets/banner.png';
+import Image from 'next/image';
 
 interface PageLayoutProps {
   children: React.ReactNode;
@@ -15,10 +16,10 @@ export default function PageLayout({ children, hideBanner = false }: PageLayoutP
       
       <main className="flex-1 w-full max-w-5xl mx-auto flex flex-col pb-8 md:my-10 md:shadow-2xl md:rounded-[12px] md:overflow-hidden md:bg-white relative">
         {!hideBanner && (
-          <img 
-            src={bannerImg.src} 
+          <Image 
+            src={bannerImg} 
             alt="Banner" 
-            className="w-full h-[120px] md:h-[240px] lg:h-[280px] object-cover block"
+            className="w-full h-[80px] md:h-[240px] lg:h-[280px] object-cover block"
           />
         )}
 

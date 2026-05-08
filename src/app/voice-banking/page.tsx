@@ -7,16 +7,8 @@ import { Phone } from 'lucide-react';
 export default function VoiceBanking() {
   return (
     <PageLayout>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
-        <div className="flex flex-col order-1 md:order-2 w-full">
-          <img 
-            src={lifestyleImg.src} 
-            alt="Person using voice banking on phone" 
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
-          />
-        </div>
-
-        <div className="flex flex-col order-2 md:order-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-center">
+        <div className="flex flex-col">
           <h2 className="text-2xl md:text-4xl mb-6 font-bold text-wafd-dark leading-tight">
             Use Your Unique Voice to do Your Banking!
           </h2>
@@ -27,11 +19,19 @@ export default function VoiceBanking() {
             Enroll in minutes.
           </p>
 
-          <PrimaryButton 
+          <PrimaryButton
             href="tel:18003249375"
           >
             SET UP VOICE BANKING
           </PrimaryButton>
+        </div>
+
+        <div className="flex flex-col w-full">
+          <img
+            src={lifestyleImg.src}
+            alt="Person using voice banking on phone"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+          />
         </div>
       </div>
     </PageLayout>

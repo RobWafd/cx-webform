@@ -5,6 +5,7 @@ import PrimaryButton from '../PrimaryButton';
 import feedLifestyleImg from '../../assets/feed_lifestyle.png';
 import { Minus, Plus } from 'lucide-react';
 import { useDynamicText } from '../../utils/dynamicText';
+import Image from 'next/image';
 
 export default function WelcomeUnregistered() {
   const [isAccordionOpen, setIsAccordionOpen] = useState(false);
@@ -15,20 +16,12 @@ export default function WelcomeUnregistered() {
 
   return (
     <PageLayout>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-        <div className="flex flex-col order-1 md:order-2 w-full">
-          <img 
-            src={feedLifestyleImg.src} 
-            alt="Customer Lifestyle" 
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
-          />
-        </div>
-
-        <div className="flex flex-col order-2 md:order-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start">
+        <div className="flex flex-col">
           <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">
             Welcome to Your WaFd Mobile Feed!
           </h2>
-            
+
           <p className="text-[#202324] mb-4 font-semibold text-[20px] leading-[24px]">
             {dynamicGreeting}
           </p>
@@ -42,14 +35,14 @@ export default function WelcomeUnregistered() {
           </PrimaryButton>
 
           <div className="border border-wafd-border rounded-lg mt-6 bg-gray-50 overflow-hidden">
-            <button 
+            <button
               onClick={() => setIsAccordionOpen(!isAccordionOpen)}
               className="w-full flex justify-between items-center bg-transparent border-none text-[#202324] font-semibold text-[16px] cursor-pointer p-5 hover:bg-gray-100 transition-colors"
             >
               What You'll Need
               {isAccordionOpen ? <Minus size={20} /> : <Plus size={20} />}
             </button>
-            
+
             {isAccordionOpen && (
               <div className="px-5 pb-5 pt-2 text-[#202324] bg-white border-t border-gray-200">
                 <p className="mb-4 text-[16px] leading-[24px] pt-2">
@@ -63,6 +56,14 @@ export default function WelcomeUnregistered() {
               </div>
             )}
           </div>
+        </div>
+
+        <div className="flex flex-col w-full">
+          <Image
+            src={feedLifestyleImg}
+            alt="Customer Lifestyle"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+          />
         </div>
       </div>
     </PageLayout>

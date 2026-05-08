@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 export default function Header() {
@@ -8,17 +9,18 @@ export default function Header() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <header className="bg-wafd-header text-white px-5 py-[12px] h-[64px] flex justify-between items-center relative z-50 shadow-md">
-      {/* Spacer to center logo using flex-between */}
-      <div className="w-[32px] md:hidden"></div>
-      
-      <Link href="/" className="flex items-center no-underline text-white md:ml-0 mx-auto">
-        <img src="/wafd-logo.svg" alt="WaFd Bank Logo" className="h-[40px] w-auto object-contain" />
+    <header className="bg-wafd-header text-white px-5 py-[12px] h-[64px] flex items-center relative z-50 shadow-md">
+      <div className="flex-1"></div>
+
+      <Link href="/" className="flex items-center no-underline text-white">
+        <Image src="/wafd-logo.svg" alt="WaFd Bank Logo" width={160} height={40} className="h-[40px] w-auto object-contain" />
       </Link>
 
-      <button onClick={toggleMenu} className="focus:outline-none cursor-pointer hover:text-gray-300 transition-colors bg-transparent border-none text-white flex items-center p-0">
-        {isOpen ? <X size={32} /> : <Menu size={32} />}
-      </button>
+      <div className="flex-1 flex justify-end">
+        <button onClick={toggleMenu} className="focus:outline-none cursor-pointer hover:text-gray-300 transition-colors bg-transparent border-none text-white flex items-center p-0">
+          {isOpen ? <X size={32} /> : <Menu size={32} />}
+        </button>
+      </div>
 
       {isOpen && (
         <nav className="absolute top-[64px] left-0 w-full bg-wafd-header shadow-2xl border-t border-[#003d3a] flex flex-col py-2 z-50 transition-all duration-300">

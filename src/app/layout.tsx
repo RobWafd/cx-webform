@@ -5,6 +5,13 @@ export const metadata = {
   description: 'CX Webform built with Next.js',
 };
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
+};
+
 import { ClientStateProvider } from '../contexts/ClientStateContext';
 import { Suspense } from 'react';
 

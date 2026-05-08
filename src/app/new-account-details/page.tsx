@@ -5,6 +5,7 @@ import PrimaryButton from '../../components/PrimaryButton';
 import feedLifestyleImg from '../../assets/feed_lifestyle.png';
 import { ChevronRight } from 'lucide-react';
 import { useDynamicText } from '../../utils/dynamicText';
+import Image from 'next/image';
 
 export default function NewAccountDetails() {
   const { parseText } = useDynamicText();
@@ -18,8 +19,8 @@ export default function NewAccountDetails() {
       <div className="flex flex-col w-full max-w-md mx-auto items-center">
         
         {/* Lifestyle Image */}
-        <img 
-          src={feedLifestyleImg.src} 
+        <Image 
+          src={feedLifestyleImg} 
           alt="Customer using mobile app" 
           className="w-full h-auto mb-8 shadow-sm"
         />
@@ -63,8 +64,8 @@ export default function NewAccountDetails() {
         {/* CTA Button */}
         <PrimaryButton href="https://online.wafdbank.com/index.html?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding">
           <div className="flex items-center gap-2">
-            <ChevronRight size={20} className="text-white" />
             <span>DOWNLOAD THE APP</span>
+            <ChevronRight size={20} className="text-white" />
           </div>
         </PrimaryButton>
 

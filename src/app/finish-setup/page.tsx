@@ -8,16 +8,8 @@ import { Link as LinkIcon, ChevronRight } from 'lucide-react';
 export default function FinishSetup() {
   return (
     <PageLayout>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-        <div className="flex flex-col order-1 md:order-2 w-full">
-          <img 
-            src={feedLifestyleImg.src} 
-            alt="Person using a digital wallet on a payment terminal" 
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
-          />
-        </div>
-
-        <div className="flex flex-col order-2 md:order-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start">
+        <div className="flex flex-col">
           <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">Finish Setting up Your New Account!</h2>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
             We're pleased to welcome you as a new client! Setting up your new account is quick and easy. Take a few minutes to:
@@ -47,6 +39,14 @@ export default function FinishSetup() {
           <Link href="/connect-accounts" className="text-wafd-blue underline block font-medium text-lg mt-auto hover:text-blue-800 transition-colors">
             How to Connect Your Accounts
           </Link>
+        </div>
+
+        <div className="flex flex-col w-full">
+          <img
+            src={feedLifestyleImg.src}
+            alt="Person using a digital wallet on a payment terminal"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+          />
         </div>
       </div>
     </PageLayout>

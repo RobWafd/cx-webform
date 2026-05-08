@@ -11,19 +11,10 @@ export default function Enrollment() {
 
   return (
     <PageLayout>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-start">
-        
-        {/* Mobile: Image on top. Desktop: Image on right */}
-        <div className="flex flex-col order-1 md:order-2 w-full">
-          <img
-            src={heroImg.src}
-            alt="Mobile App View"
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
-          />
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start">
 
-        {/* Form content */}
-        <div className="flex flex-col order-2 md:order-1">
+        {/* Content first: visible immediately on mobile */}
+        <div className="flex flex-col">
           <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">Skip the Line</h2>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
             Enrollment is quick and simple! With online and mobile banking you can:
@@ -64,6 +55,14 @@ export default function Enrollment() {
               </div>
             )}
           </div>
+        </div>
+
+        <div className="flex flex-col w-full">
+          <img
+            src={heroImg.src}
+            alt="Mobile App View"
+            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+          />
         </div>
 
       </div>
