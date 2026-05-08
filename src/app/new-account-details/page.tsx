@@ -5,8 +5,6 @@ import feedLifestyleImg from '../../assets/welcome.png';
 import { useDynamicText } from '../../utils/dynamicText';
 import Image from 'next/image';
 
-const currentYear = new Date().getFullYear();
-
 export default function NewAccountDetails() {
   const { parseText } = useDynamicText();
 
@@ -58,16 +56,6 @@ export default function NewAccountDetails() {
         </div>
 
         <AppDownloads campaign="new_account_onboarding" />
-
-        <div className="w-full bg-gray-100 p-4 rounded text-left mt-2">
-          <p className="text-wafd-gray text-[11px] leading-[15px]">
-            This is a service message from WaFd Bank.<br />
-            WaFd Bank | 425 Pike Street Seattle, WA 98101<br />
-            &copy;{currentYear} WaFd Bank. All Rights Reserved<br />
-            <a href="https://www.wafdbank.com/privacy" className="text-wafd-gray underline">Privacy</a> &amp; <a href="https://www.wafdbank.com/terms" className="text-wafd-gray underline">Terms of Use</a><br />
-            Member FDIC
-          </p>
-        </div>
 
       </div>
     </PageLayout>
