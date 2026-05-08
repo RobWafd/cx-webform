@@ -1,46 +1,89 @@
 # CX Webform: Consumer Checking Onboarding
 
-This project is a React-based Next.js application. It serves as a collection of mobile-optimized onboarding flows and marketing scenarios specifically designed for SMS campaigns. 
+Mobile-optimized Next.js landing pages for WaFd Bank's SMS drip campaign. Users tap a link in a text message and land directly on the page — the primary goal is to render the headline and CTA above the fold on a mobile screen without scrolling.
 
 ## Tech Stack
-- **Framework**: Next.js 16 (App Router)
-- **Language**: TypeScript (`.tsx`)
-- **Styling**: Tailwind CSS & Custom Themes
-- **Iconography**: `lucide-react`
+
+| | |
+|---|---|
+| **Framework** | Next.js 16 (App Router) |
+| **Language** | TypeScript |
+| **Styling** | Tailwind CSS v4 with custom design tokens |
+| **Icons** | `lucide-react` |
+| **Font** | `next/font/google` — Open Sans (self-hosted, no render blocking) |
+| **Deployment** | Vercel |
 
 ## Application Routes
 
-The application contains several discrete views requested by the CX team, automatically mapped using Next.js file-system routing (`src/app/`):
+All routes are file-system mapped under `src/app/`:
 
-* **Welcome Screen** (`/`): The initial mobile landing page.
-* **Enrollment Flow** (`/enrollment`): Mobile enrollment flow emphasizing digital banking features and Zelle integration.
-* **Direct Deposit Setup** (`/finish-setup`): Direct Deposit setup and Digital Wallet onboarding instructions.
-* **Account Connectivity Guide** (`/connect-accounts`): Account linking instructions with native mobile app downloads.
-* **Voice Banking Marketing** (`/voice-banking`): Voice banking marketing setup with a one-click `tel:` protocol CTA.
-* **Platform Pro Tips** (`/pro-tips`): Pro tips on UI alerts, linking accounts, and card management.
-* **Login Step-by-Step** (`/login-instructions`): Login checklist instructions for both mobile and online banking platforms.
-* **Rewards Feature Highlight** (`/rewards-benefits`): Highlight reel of checking account perks and benefits.
-* **Rewards Navigation Guide** (`/access-rewards`): Navigation instructions for finding the specific Rewards tile.
+| Route | Description |
+|---|---|
+| `/` | Welcome screen — dynamic greeting via `useDynamicText` |
+| `/enrollment` | Online banking enrollment CTA with accordion for required docs |
+| `/finish-setup` | Direct deposit setup and digital wallet (Apple/Google Pay) instructions |
+| `/connect-accounts` | Account linking guide with app download CTA |
+| `/voice-banking` | Voice banking feature with one-tap `tel:` CTA |
+| `/pro-tips` | Alerts, account linking, and card management tips |
+| `/login-instructions` | Step-by-step first-login checklist |
+| `/rewards-benefits` | Checking account perks and benefits highlight |
+| `/access-rewards` | Navigation guide for the Rewards tile in-app |
+| `/new-account-details` | Personalized account details page — renders `@{input_last4digits}` and `@{input_productname}` injected by the SMS platform |
+| `/download` | Direct app download page (App Store / Google Play) |
+
+## Architecture
+
+### Components
+
+| Component | Purpose |
+|---|---|
+| `PageLayout` | Shell: Header + banner + content area + Footer |
+| `Header` | WaFd logo + responsive hamburger nav (ARIA-compliant) |
+| `Footer` | Legal disclaimer, address, copyright |
+| `AppDownloads` | App Store / Google Play badges with UTM-tracked campaign links |
+| `PrimaryButton` | CTA button — accepts `href` (external) or `to` (internal Next.js `Link`) |
+| `EnrollmentAccordion` | Accessible expand/collapse for enrollment requirements (ARIA `aria-expanded` + `aria-controls`) |
+| `scenarios/WelcomeUnregistered` | Dynamic welcome page consuming `useDynamicText` |
+
+### Utilities
+
+| Utility | Purpose |
+|---|---|
+| `utils/dynamicText.ts` | Parses `@{token}` placeholders injected by the Relay SMS platform |
+| `utils/openGraph.ts` | `ogImage(url, alt)` — generates standard 1200×630 OG image objects for page metadata |
+
+### Design Tokens (`src/app/globals.css`)
+
+```
+wafd-green   #009639    headings, primary accents
+wafd-dark    #202324    body text, table labels
+wafd-text    #202324    general text
+wafd-gray    #505759    secondary / muted text
+wafd-blue    #2563EB    links
+wafd-header  #004945    header background
+wafd-border  #E5E7EB    dividers
+```
+
+### OG Images (`public/og/`)
+
+Static images served at stable paths for SMS link preview cards (iMessage, Android Messages). One image per route; referenced via `ogImage()` in each page's `export const metadata`.
+
+## Mobile-First Layout
+
+SMS recipients land directly on these pages from a phone. Layout decisions prioritize above-the-fold content:
+
+- **Banner**: 80px mobile / 240px tablet / 280px desktop
+- **Header**: 64px fixed height
+- **Two-column pages**: Content div appears first in DOM order so the headline and CTA render before the hero image on single-column mobile. CSS Grid naturally places the first child in the left column on desktop — no `order-*` classes needed.
+- **Touch targets**: App Store / Google Play links enforce `min-h-[48px]`
+- **Viewport**: `maximumScale: 1` prevents iOS auto-zoom on tap
 
 ## Development
 
-To run this project locally, ensure you have Node.js installed.
+```bash
+npm install       # install dependencies
+npm run dev       # start dev server with Turbopack
+npm run build     # production build
+```
 
-1. Install dependencies:
-   ```bash
-   npm install
-   ```
-2. Start the development server (runs with Turbopack):
-   ```bash
-   npm run dev
-   ```
-3. To trigger a production build:
-   ```bash
-   npm run build
-   ```
-
-## Architecture Notes
-
-To adhere to DRY (Don't Repeat Yourself) principles, repeating elements like the Header, component containers, and Store CTAs have been extracted into reusable components (`src/components/Header.tsx`, `src/components/PageLayout.tsx`, and `src/components/AppDownloads.tsx`). 
-
-These modules have been configured with TypeScript interfaces mapping directly to strict Figma branding bounds (e.g. `wafd-green`, vector UI badges) to ensure globally cohesive, type-safe layouts across the Next.js footprint.
+Requires Node.js 18+. Environment variable `NEXT_PUBLIC_BASE_URL` sets the base URL for `metadataBase`; falls back to `VERCEL_URL` then `localhost:3000`.

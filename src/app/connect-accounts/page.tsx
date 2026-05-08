@@ -1,6 +1,17 @@
-import React from 'react';
+import type { Metadata } from 'next';
 import PageLayout from '../../components/PageLayout';
 import AppDownloads from '../../components/AppDownloads';
+import { ogImage } from '../../utils/openGraph';
+
+export const metadata: Metadata = {
+  title: 'Connect Your Accounts | WaFd Bank',
+  description: 'Connect accounts from any bank to see all your finances in one place inside the WaFd mobile app.',
+  openGraph: {
+    title: 'Connect Your Accounts',
+    description: 'Link accounts from any bank to see all your finances in one place.',
+    images: ogImage('/og/banner.png', 'WaFd Bank'),
+  },
+};
 
 export default function ConnectAccounts() {
   return (

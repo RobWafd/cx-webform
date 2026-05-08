@@ -1,8 +1,27 @@
 import './globals.css';
+import { Open_Sans } from 'next/font/google';
+import { ClientStateProvider } from '../contexts/ClientStateContext';
+import { Suspense } from 'react';
+import { ogImage } from '../utils/openGraph';
+
+const openSans = Open_Sans({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  display: 'swap',
+});
 
 export const metadata = {
-  title: 'CX Webform',
-  description: 'CX Webform built with Next.js',
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL ??
+    (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000')
+  ),
+  title: 'WaFd Bank | Welcome',
+  description: 'Welcome to WaFd Bank. Manage your new account with our mobile app.',
+  openGraph: {
+    siteName: 'WaFd Bank',
+    type: 'website',
+    images: ogImage('/og/banner.png', 'WaFd Bank'),
+  },
 };
 
 export const viewport = {
@@ -12,13 +31,10 @@ export const viewport = {
   userScalable: false,
 };
 
-import { ClientStateProvider } from '../contexts/ClientStateContext';
-import { Suspense } from 'react';
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body>
+      <body className={openSans.className}>
         <div id="root">
           <Suspense fallback={<div>Loading Experience...</div>}>
             <ClientStateProvider>
@@ -30,6 +46,3 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     </html>
   );
 }
-
-
-

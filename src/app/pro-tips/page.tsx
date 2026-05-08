@@ -1,8 +1,19 @@
-import React from 'react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import PageLayout from '../../components/PageLayout';
+import { ogImage } from '../../utils/openGraph';
 import PrimaryButton from '../../components/PrimaryButton';
-import feedLifestyleImg from '../../assets/feed_lifestyle.png'; 
-import { ChevronRight } from 'lucide-react';
+import feedLifestyleImg from '../../assets/tips.png';
+
+export const metadata: Metadata = {
+  title: 'Banking Pro Tips | WaFd Bank',
+  description: 'Set up alerts, link your accounts, and manage your cards to get the most out of WaFd mobile banking.',
+  openGraph: {
+    title: 'Banking Pro Tips',
+    description: 'Set up alerts, link accounts, and manage your cards — banking made easy.',
+    images: ogImage('/og/tips.png', 'WaFd banking tips'),
+  },
+};
 
 export default function ProTips() {
   return (
@@ -30,24 +41,20 @@ export default function ProTips() {
             </li>
           </ul>
 
-          <PrimaryButton
-            to="/login-instructions"
-          >
+          <PrimaryButton to="/login-instructions">
             GET STARTED
           </PrimaryButton>
         </div>
 
         <div className="flex flex-col w-full">
-          <img
-            src={feedLifestyleImg.src}
+          <Image
+            src={feedLifestyleImg}
             alt="Person paying with card"
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="w-full h-auto rounded-[12px] mb-6 shadow-xl"
           />
         </div>
       </div>
     </PageLayout>
   );
 }
-
-
-

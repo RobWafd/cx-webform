@@ -1,6 +1,17 @@
-import React from 'react';
+import type { Metadata } from 'next';
 import PageLayout from '../../components/PageLayout';
 import AppDownloads from '../../components/AppDownloads';
+import { ogImage } from '../../utils/openGraph';
+
+export const metadata: Metadata = {
+  title: 'Access Your Rewards | WaFd Bank',
+  description: 'Learn how to access your WaFd rewards through mobile banking or online banking.',
+  openGraph: {
+    title: 'Access Your WaFd Rewards',
+    description: 'Step-by-step guide to access your rewards through the app or online banking.',
+    images: ogImage('/og/rewards.png', 'WaFd rewards'),
+  },
+};
 
 export default function AccessRewards() {
   return (

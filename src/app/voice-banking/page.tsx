@@ -1,8 +1,19 @@
-import React from 'react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import PageLayout from '../../components/PageLayout';
+import { ogImage } from '../../utils/openGraph';
 import PrimaryButton from '../../components/PrimaryButton';
-import lifestyleImg from '../../assets/lifestyle.png'; 
-import { Phone } from 'lucide-react';
+import lifestyleImg from '../../assets/voice_banking.png';
+
+export const metadata: Metadata = {
+  title: 'Voice Banking | WaFd Bank',
+  description: 'Use your unique voice to check balances and transfer money between WaFd accounts. Enroll in minutes.',
+  openGraph: {
+    title: 'Set Up Voice Banking',
+    description: 'Check balances and transfer money hands-free. Enroll in minutes.',
+    images: ogImage('/og/voice_banking.png', 'WaFd voice banking'),
+  },
+};
 
 export default function VoiceBanking() {
   return (
@@ -19,24 +30,20 @@ export default function VoiceBanking() {
             Enroll in minutes.
           </p>
 
-          <PrimaryButton
-            href="tel:18003249375"
-          >
+          <PrimaryButton href="tel:18003249375">
             SET UP VOICE BANKING
           </PrimaryButton>
         </div>
 
         <div className="flex flex-col w-full">
-          <img
-            src={lifestyleImg.src}
+          <Image
+            src={lifestyleImg}
             alt="Person using voice banking on phone"
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="w-full h-auto rounded-[12px] mb-6 shadow-xl"
           />
         </div>
       </div>
     </PageLayout>
   );
 }
-
-
-

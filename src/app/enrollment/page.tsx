@@ -1,19 +1,27 @@
-"use client";
-import React, { useState } from 'react';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import PageLayout from '../../components/PageLayout';
+import { ogImage } from '../../utils/openGraph';
 import AppDownloads from '../../components/AppDownloads';
 import PrimaryButton from '../../components/PrimaryButton';
+import EnrollmentAccordion from '../../components/EnrollmentAccordion';
 import heroImg from '../../assets/hero.png';
-import { Link as LinkIcon, ChevronDown, ChevronUp } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Enroll in Online Banking | WaFd Bank',
+  description: 'Enroll in WaFd online and mobile banking to view balances, pay bills, and send money with Zelle.',
+  openGraph: {
+    title: 'Enroll in Online Banking',
+    description: 'Quick and simple enrollment. View balances, pay bills, and send money with Zelle.',
+    images: ogImage('/og/hero.png', 'WaFd mobile app'),
+  },
+};
 
 export default function Enrollment() {
-  const [isExpanded, setIsExpanded] = useState(false);
-
   return (
     <PageLayout>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start">
 
-        {/* Content first: visible immediately on mobile */}
         <div className="flex flex-col">
           <h2 className="text-[24px] leading-[28px] font-semibold text-wafd-green mb-4">Skip the Line</h2>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
@@ -27,7 +35,7 @@ export default function Enrollment() {
 
           <h3 className="text-lg md:text-[20px] leading-[24px] font-semibold text-wafd-text mb-6">Enroll to get started!</h3>
 
-          <PrimaryButton 
+          <PrimaryButton
             href="https://online.wafdbank.com/index.html?utm_source=relay&utm_medium=sms&utm_campaign=checking_onboarding"
           >
             ENROLL NOW
@@ -35,33 +43,15 @@ export default function Enrollment() {
 
           <AppDownloads campaign="checking_onboarding" />
 
-          {/* Accordion */}
-          <div className="border border-wafd-border rounded-lg mt-6 bg-gray-50 overflow-hidden">
-            <button
-              onClick={() => setIsExpanded(!isExpanded)}
-              className="w-full flex justify-between items-center bg-transparent border-none text-wafd-dark font-semibold text-base cursor-pointer p-4 hover:bg-gray-100 transition-colors"
-            >
-              What You Need to Enroll
-              {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
-            </button>
-
-            {isExpanded && (
-              <div className="px-4 pb-4 pt-2 text-wafd-text bg-white border-t border-gray-200">
-                <ol className="list-decimal pl-5 leading-relaxed space-y-2 pt-2">
-                  <li>Last Name</li>
-                  <li>Social Security Number</li>
-                  <li>Date of Birth</li>
-                </ol>
-              </div>
-            )}
-          </div>
+          <EnrollmentAccordion />
         </div>
 
         <div className="flex flex-col w-full">
-          <img
-            src={heroImg.src}
+          <Image
+            src={heroImg}
             alt="Mobile App View"
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="w-full h-auto rounded-[12px] mb-6 shadow-xl"
           />
         </div>
 
@@ -69,6 +59,3 @@ export default function Enrollment() {
     </PageLayout>
   );
 }
-
-
-

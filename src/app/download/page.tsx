@@ -1,6 +1,17 @@
-import React from 'react';
+import type { Metadata } from 'next';
 import PageLayout from '../../components/PageLayout';
 import AppDownloads from '../../components/AppDownloads';
+import { ogImage } from '../../utils/openGraph';
+
+export const metadata: Metadata = {
+  title: 'Download the WaFd App | WaFd Bank',
+  description: 'Download the WaFd mobile banking app for iOS and Android to manage your account on the go.',
+  openGraph: {
+    title: 'Download the WaFd App',
+    description: 'Available on the App Store and Google Play. Manage your account on the go.',
+    images: ogImage('/og/banner.png', 'WaFd Bank mobile app'),
+  },
+};
 
 export default function Download() {
   return (

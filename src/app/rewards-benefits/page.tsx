@@ -1,9 +1,20 @@
-import React from 'react';
-import Link from 'next/link';
+import type { Metadata } from 'next';
+import Image from 'next/image';
 import PageLayout from '../../components/PageLayout';
+import { ogImage } from '../../utils/openGraph';
 import PrimaryButton from '../../components/PrimaryButton';
-import feedLifestyleImg from '../../assets/feed_lifestyle.png'; 
-import { ChevronRight, Link as LinkIcon } from 'lucide-react';
+import feedLifestyleImg from '../../assets/rewards.png';
+import { Link as LinkIcon } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Your Account Benefits | WaFd Bank',
+  description: 'Explore the money-saving perks included with your WaFd checking account — fuel savings, phone protection, shopping discounts, and more.',
+  openGraph: {
+    title: "Don't Miss Out on Your Benefits",
+    description: 'Fuel savings, phone protection, shopping discounts, and more — included with your account.',
+    images: ogImage('/og/rewards.png', 'WaFd account rewards and benefits'),
+  },
+};
 
 export default function RewardsBenefits() {
   return (
@@ -11,7 +22,7 @@ export default function RewardsBenefits() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-16 items-start">
         <div className="flex flex-col">
           <h2 className="text-2xl md:text-4xl font-bold text-wafd-dark mb-4">
-            Don't Miss Out on Your Benefits!
+            Don&apos;t Miss Out on Your Benefits!
           </h2>
           <p className="text-wafd-text mb-6 leading-relaxed text-lg">
             Have you tapped into the money saving perks that come with your checking account? Your benefits include:
@@ -24,9 +35,7 @@ export default function RewardsBenefits() {
             <li>Identity Theft Monitoring and more</li>
           </ul>
 
-          <PrimaryButton 
-            to="/access-rewards"
-          >
+          <PrimaryButton to="/access-rewards">
             VIEW REWARDS
           </PrimaryButton>
 
@@ -37,16 +46,14 @@ export default function RewardsBenefits() {
         </div>
 
         <div className="flex flex-col w-full">
-          <img
-            src={feedLifestyleImg.src}
+          <Image
+            src={feedLifestyleImg}
             alt="Person pumping gas"
-            className="w-full rounded-[12px] mb-6 shadow-xl object-cover"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="w-full h-auto rounded-[12px] mb-6 shadow-xl"
           />
         </div>
       </div>
     </PageLayout>
   );
 }
-
-
-
